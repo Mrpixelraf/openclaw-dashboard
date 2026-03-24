@@ -3,9 +3,16 @@ import Header from './components/Header.jsx'
 import StatBar from './components/StatBar.jsx'
 import AgentCard from './components/AgentCard.jsx'
 import CronTable from './components/CronTable.jsx'
+import CronHeatmap from './components/CronHeatmap.jsx'
 import SubagentPanel from './components/SubagentPanel.jsx'
 import CostPanel from './components/CostPanel.jsx'
+import ActivityPulse from './components/ActivityPulse.jsx'
+import BurnRate from './components/BurnRate.jsx'
 import LogViewer from './components/LogViewer.jsx'
+import ClaudeCodeUsage from './components/ClaudeCodeUsage.jsx'
+import MemoryBrowser from './components/MemoryBrowser.jsx'
+import LiveActivityFeed from './components/LiveActivityFeed.jsx'
+import ProjectBoard from './components/ProjectBoard.jsx'
 import SessionReplay from './components/replay/SessionReplay.jsx'
 
 function useData() {
@@ -78,13 +85,32 @@ export default function App() {
           </div>
         </section>
 
-        {/* Cron Jobs */}
+        {/* Live Activity Feed */}
+        <LiveActivityFeed />
+
+        {/* Project Board */}
+        <ProjectBoard />
+
+        {/* Activity Pulse + Burn Rate */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <ActivityPulse />
+          <BurnRate />
+        </div>
+
+        {/* Cron Jobs + Heatmap */}
         <CronTable crons={data?.crons || []} />
+        <CronHeatmap crons={data?.crons || []} />
 
         {/* Sub-agents + Costs */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <SubagentPanel subagents={data?.subagents || { active: [], recent: [] }} />
           <CostPanel costs={data?.costs || {}} />
+        </div>
+
+        {/* Claude Code Sessions + Memory */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <ClaudeCodeUsage />
+          <MemoryBrowser />
         </div>
 
         {/* Live Log */}

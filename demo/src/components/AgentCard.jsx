@@ -23,7 +23,7 @@ function CtxBar({ ctx }) {
   )
 }
 
-export default function AgentCard({ agent, onOpenReplay }) {
+export default function AgentCard({ agent }) {
   const [tab, setTab] = useState(0)
   const isActive = agent.status === 'active'
 
@@ -48,12 +48,6 @@ export default function AgentCard({ agent, onOpenReplay }) {
               Idle
             </span>
           )}
-          <button
-            onClick={onOpenReplay}
-            className="text-[10px] text-violet-400 bg-violet-950 border border-violet-800 px-2 py-0.5 rounded hover:bg-violet-900 transition-colors"
-          >
-            Replay ▶
-          </button>
         </div>
       </div>
 

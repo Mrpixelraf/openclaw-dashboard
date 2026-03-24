@@ -1,9 +1,7 @@
 node_modules/
 dist/
-demo/node_modules/
-demo/dist/
+demo/
 .env*
 *.log
 BRIEF*.md
 HANDOFF*.md
-.DS_Store

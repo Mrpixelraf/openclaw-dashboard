@@ -58,6 +58,9 @@ export function cronHuman(sched) {
     return `every ${m}m`
   }
   const map = {
+    '0 9 * * *':    '09:00 daily',
+    '*/15 * * * *': 'every 15m',
+    '0 3 * * 0':    'Sun 03:00',
     '30 5 * * *':   '05:30 daily',
     '0 7 * * *':    '07:00 daily',
     '0 8 * * 1-5':  '08:00 weekdays',
