@@ -637,7 +637,7 @@ app.get('*', (req, res) => {
   else res.status(404).send('Run `npm run build` first, or use `npm run dev`')
 })
 
-app.listen(PORT, '127.0.0.1', () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`\n🦞 OpenClaw API → http://localhost:${PORT}`)
   console.log(`   Frontend dev → npm run dev  (http://localhost:5173)\n`)
 })
